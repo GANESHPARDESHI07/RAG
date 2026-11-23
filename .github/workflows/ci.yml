@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile application
+        run: python -m py_compile app.py
+
+      - name: Validate notebook
+        run: python -c "import json; json.load(open('RAG_cleared_cell_output.ipynb', encoding='utf-8'))"

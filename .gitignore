@@ -1,0 +1,22 @@
+# Local environment settings
+RAG.env
+.env
+*.env
+!.env.example
+!RAG.env.example
+
+# Local Python environment and generated files
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local Qdrant database files
+qdrant-server/storage/
+PDF_PATH/
+*.sqlite
+*.sqlite-*
+
+# Uploaded documents (may contain restricted or copyrighted material)
+data/*.pdf
+*.pdf
